@@ -122,7 +122,7 @@
 		)
 	)
 )
-(defun process ()
+(defun run ()
 	(loadGraph)
 	(getforest 1)
 	(cond
