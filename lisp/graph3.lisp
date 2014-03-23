@@ -1,5 +1,7 @@
 (load './graph)
 
+; Walk through all edges from vertex
+; Keep path and count as parameters
 (defun processvertex (v cnt lst edge)
 	(cond
 		((null edge) Nil)
@@ -14,6 +16,8 @@
 	)
 )
 
+; Mark vertex as visited (color 1) and forward
+; If we visited exactry N + 1 vertex - check for end and save path as answer
 (defun dfs (v cnt lst)
 	(cond
 		((get 'G 'answer)
@@ -39,6 +43,7 @@
 	)
 )
 
+; The main function
 (defun run ()
 	(loadGraph)
 	(put 'G 'answer Nil)

@@ -1,5 +1,7 @@
 (load './graph)
 
+; Fill colors to -1 color
+; Assuming, that 0 color - it's left side of Biparted Graph, and 1 - right side
 (defun resetColor (done lst)
 	(cond
 		((null lst) done)
@@ -9,6 +11,7 @@
 	)
 )
 
+; Walk through all edges from vertex
 (defun processvertex (v col edge)
 	(cond
 		((null edge) Nil)
@@ -22,6 +25,8 @@
 	)
 )
 
+; Paint vertex
+; If we already has visited this vertex, check for right color
 (defun dfs (v col)
 	(let ((curcolor (getcolor v)))
 		(cond
@@ -47,6 +52,7 @@
 	)
 )
 
+; The main function
 (defun run ()
 	(loadGraph)
 	(put 'G 'Lcount 0)
